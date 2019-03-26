@@ -1,0 +1,48 @@
+<div id="fh5co-consult">
+    <div class="video fh5co-video" style="background-image: url(images/contact.jpg);">
+        <div class="overlay"></div>
+    </div>
+    <div class="choose animate-box">
+        <h2>Contact</h2>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'action': path('index_contact') }}) }}
+
+        <div class="row form-group">
+                <div class="col-md-6">
+                    {{ form_row(form.firstname) }}
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    {{ form_row(form.lastname) }}
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-12">
+                    {{ form_row(form.email) }}
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-12">
+                    {{ form_row(form.subject) }}
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-12">
+                    {{ form_row(form.content) }}
+                </div>
+            </div>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success" role="alert">
+                    <strong> {{ message }}</strong>
+                </div>
+            {% endfor %}
+            <div class="form-group">
+                <input type="submit" value="Envoyer le mesage" class="btn btn-primary">
+            </div>
+
+        {{ form_end(form) }}
+    </div>
+</div>

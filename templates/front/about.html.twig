@@ -1,0 +1,28 @@
+<div id="fh5co-about" class="animate-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <h2>A propos de moi</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="info">
+                    <li><span class="first-block">Nom :</span><span class="second-block">{{ user.name }}</span></li>
+                    <li><span class="first-block">Phone :</span><span class="second-block">{{ user.phone }}</span></li>
+                    <li><span class="first-block">Email :</span><span class="second-block">{{ user.email }}</span></li>
+                    <li><span class="first-block">Website :</span><span class="second-block">{{ user.website }}</span></li>
+                    <li><span class="first-block">Address :</span><span class="second-block">{{ user.address }}</span></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <p>{{ user.aboutMe|nl2br  }}</p>
+                <ul class="fh5co-social-icons">
+                    <li><a href="https://github.com/syfea"><i class="icon-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/sylvain-feasson/"><i class="icon-linkedin2"></i></a></li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

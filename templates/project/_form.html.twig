@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+    <div class="form-group">
+        {{ form_row(form.name) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.description) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.url) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.picture) }}
+        {% if project.picture is not empty %}
+            <a href="{{ asset('uploads/project/' ~ project.picture) }}">View project</a>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.date) }}
+    </div>
+    <button class="btn btn-lg btn-info btn-block">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

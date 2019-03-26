@@ -1,0 +1,26 @@
+{% extends 'base_bo_on.html.twig' %}
+
+{% block title %}Edit Project{% endblock %}
+
+{% block content %}
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="title-3 m-b-30">Editer un projet</h3>
+                        </div>
+                        <div class="card-body">
+                            {{ include('project/_form.html.twig', {'button_label': 'Update'}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ path('project_index') }}" class="btn btn-primary btn-sm">back to list</a>
+                {{ include('project/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

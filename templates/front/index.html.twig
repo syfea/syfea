@@ -1,0 +1,29 @@
+{% extends 'base_fo.html.twig' %}
+
+{% block body %}
+    <div id="page">
+        {{ render(controller(
+            'App\\Controller\\IndexController::header'
+        )) }}
+        {{ render(controller(
+            'App\\Controller\\IndexController::about'
+        )) }}
+        {{ render(controller(
+            'App\\Controller\\IndexController::work'
+        )) }}
+        {{ render(controller(
+            'App\\Controller\\IndexController::resume'
+        )) }}
+        {{ render(controller(
+            'App\\Controller\\IndexController::service'
+        )) }}
+        {% include 'front/blog.html.twig' %}
+        {{ render(controller(
+            'App\\Controller\\IndexController::hire'
+        )) }}
+        {{ render(controller(
+            'App\\Controller\\IndexController::contact'
+        )) }}
+    </div>
+    {% include 'front/footer.html.twig' %}
+{% endblock %}

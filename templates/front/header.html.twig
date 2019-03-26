@@ -1,0 +1,26 @@
+<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(images/dxl-544035-unsplash.jpg);" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="display-t js-fullheight">
+                    <div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
+                        <div class="profile-thumb" style="background: url(images/user.jpg);"></div>
+                        <h1><span>{{ user.title }}</span></h1>
+                        <h3><span>{{ user.name }}</span></h3>
+                        <br>
+                        <ul class="fh5co-social-icons">
+                            {% if user.git is not empty %}
+                                <li><a href="{{ user.git }}"><i class="icon-github"></i></a></li>
+                            {% endif %}
+
+                            {% if user.linkedin is not empty %}
+                                <li><a href="{{ user.linkedin }}"><i class="icon-linkedin2"></i></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

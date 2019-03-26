@@ -1,0 +1,56 @@
+{% extends 'base_bo_on.html.twig' %}
+
+{% block title %}Listing des projets{% endblock %}
+
+{% block content %}
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="title-3 m-b-30">Projets</h3>
+                    <div class="table-responsive table--no-card m-b-30">
+                        <table class="table table-borderless table-striped table-earning">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Url</th>
+                                    <th>Date</th>
+                                    <th>actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for project in projects %}
+                                <tr>
+                                    <td>{{ project.id }}</td>
+                                    <td>{{ project.name }}</td>
+                                    <td>{{ project.description }}</td>
+                                    <td>{{ project.url }}</td>
+                                    <td>{{ project.date ? project.date|date('Y-m-d H:i:s') : '' }}</td>
+                                    <td>
+                                        <a href="{{ path('project_show', {'id': project.id}) }}">show</a>
+                                        <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="7">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-data__tool-right">
+                        <a href="{{ path('project_new') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">Créer un projet</a>
+                    </div>
+                </div>
+            </div><br>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="page-content--bge5">
+        <div class="container">
+            <div class="login-wrap">
+                 <div class="login-content">
+                    <div class="login-form">
+                    {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {% if error %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
+                        <form action="{{ path("fos_user_security_check") }}" method="post">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            <div class="formgroup">
+                                <label for="username">{{ 'security.login.username'|trans }}</label>
+                                <input class="au-input au-input--full" type="text" id="username" name="_username" value="{{ last_username }}" required="required"  placeholder="Email" />
+                            </div>
+                            <div class="formgroup">
+                                <label for="password">{{ 'security.login.password'|trans }}</label>
+                                <input class="au-input au-input--full" type="password" id="password" name="_password" required="required"  placeholder="Password" />
+                            </div>
+                            <div class="login-checkbox">
+                                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                            </div>
+
+                            <input class="au-btn au-btn--block au-btn--green m-b-20" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                        </form>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}

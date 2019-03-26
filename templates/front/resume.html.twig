@@ -1,0 +1,55 @@
+<div id="fh5co-resume" class="fh5co-bg-color">
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <h2>Mon CV</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0">
+                <ul class="timeline">
+                    <li class="timeline-heading text-center animate-box">
+                        <div><h3>Expérience professionnelle</h3></div>
+                    </li>
+                    {% for job in jobs %}
+                        {% if loop.index is not divisible by(2) %}
+                            <li class="animate-box timeline-unverted">
+                        {% else %}
+                            <li class="timeline-inverted animate-box">
+                        {% endif %}
+                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h3 class="timeline-title">{{ job.title }}</h3>
+                                    <span class="company">{{ job.undertitle }}</span>
+                                </div>
+                                <div class="timeline-body">
+                                    {{ job.description|nl2br }}
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                    <br>
+                    <li class="timeline-heading text-center animate-box">
+                        <div><h3>Education</h3></div>
+                    </li>
+                    {% for school in schools %}
+                        {% if loop.index is not divisible by(2) %}
+                            <li class="animate-box timeline-unverted">
+                        {% else %}
+                            <li class="timeline-inverted animate-box">
+                         {% endif %}
+                        <div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3 class="timeline-title">{{ school.title }}</h3>
+                                <span class="company">{{ school.description }}</span>
+                            </div>
+                        </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
