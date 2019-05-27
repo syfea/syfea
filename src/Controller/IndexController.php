@@ -8,9 +8,11 @@
 
 namespace App\Controller;
 
+use App\Service\Api;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Curl\Curl;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Entity\User;
@@ -18,6 +20,8 @@ use App\Entity\Project;
 use App\Entity\Service;
 use App\Entity\Job;
 use App\Entity\School;
+use Symfony\Component\HttpFoundation\Response;
+use App\Service\ComplexObject;
 
 class IndexController extends AbstractController
 {
@@ -92,6 +96,31 @@ class IndexController extends AbstractController
         return $this->render('front/hire.html.twig', [
             'user' => $user
         ]);
+    }
+
+    public function blog(Api $api)
+    {
+        $category = $api->getCategory();
+
+        if (is_array($category->articles) && count($category->articles) == 0) {
+            return new Response();
+        }
+
+        return $this->render('front/blog.html.twig', [
+            'category' => $category,
+            'api' => $api
+        ]);
+    }
+
+    /**
+     *
+     * @Route("/article/{id}", name="index_article")
+     */
+    public function article(Request $request, $id)
+    {
+
+
+        return new Response();
     }
 
     /**

@@ -1260,7 +1260,6 @@
       outClass: 'fade-out',
       inDuration: 900,
       outDuration: 900,
-      linkElement: 'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])',
       loading: true,
       loadingParentElement: 'html',
       loadingClass: 'page-loader',
@@ -1276,8 +1275,8 @@
         window.location.href = url;
       }
     });
-  
-  
+
+
   })(jQuery);
 (function ($) {
   // USE STRICT
@@ -1642,29 +1641,5 @@
   // USE STRICT
   "use strict";
 
-  try {
-    
-    $('[data-toggle="tooltip"]').tooltip();
-
-  } catch (error) {
-    console.log(error);
-  }
-
-  // Chatbox
-  try {
-    var inbox_wrap = $('.js-inbox');
-    var message = $('.au-message__item');
-    message.each(function(){
-      var that = $(this);
-
-      that.on('click', function(){
-        $(this).parent().parent().parent().toggleClass('show-chat-box');
-      });
-    });
-    
-
-  } catch (error) {
-    console.log(error);
-  }
 
 })(jQuery);
