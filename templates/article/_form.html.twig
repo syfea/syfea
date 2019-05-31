@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    {% if image is not null %}
+        <img src="{{ image }}" alt="{{ image }}" attr="{{ article.id }}" id="picture" class="img-thumbnail" style="width: 200px;">
+    {% endif %}
+    <button class="btn btn-lg btn-info btn-block">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
